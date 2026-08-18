@@ -279,6 +279,11 @@ ruleTester.run('no-children-prop', rule, {
       errors: [{ messageId: 'nestFunction' }],
     },
     {
+      code: '<MyComponent>\n  {/* a comment */}\n  {() => {}}\n</MyComponent>;',
+      options: [{ allowFunctions: true }],
+      errors: [{ messageId: 'nestFunction' }],
+    },
+    {
       code: '<MyComponent>\n  {() => {}}</MyComponent>;',
       options: [{ allowFunctions: true }],
       errors: [{ messageId: 'nestFunction' }],
